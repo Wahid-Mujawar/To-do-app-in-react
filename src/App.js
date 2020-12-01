@@ -6,10 +6,12 @@ class App extends React.Component {
   render(){
    return (
     <header>
+      <div className="App">
       <form id="to-do-form">
         <input type="text" placeholder="Enter Text"></input>
-        <button type="submit">ADD</button>
+        <button type="submit">Add</button>
       </form>
+      </div>
     </header>
     );
   }
