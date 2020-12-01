@@ -20,6 +20,7 @@ class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.setUpdate = this.setUpdate.bind(this);
   }
   handleInput(e){
     this.setState({
@@ -51,7 +52,17 @@ deleteItem(key){
       items:filteredItems
     })
 }
-
+setUpdate(text, key){
+  const items = this.state.items;
+  items.map(item =>{
+    if(item.key===key){
+      item.text=text;
+    }
+  })
+  this.setState({
+    items:items
+  })
+}
   render(){
    return (
     <div className="App">
@@ -62,7 +73,8 @@ deleteItem(key){
       </form>
     </header>
     <ListItems items = {this.state.items} 
-    deleteItem={this.deleteItem}>
+    deleteItem={this.deleteItem}
+    setUpdate={this.setUpdate}>
     </ListItems>
 
     </div>
